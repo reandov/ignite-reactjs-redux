@@ -1,14 +1,20 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Cart } from "./components/Cart";
-import { Catalog } from "./components/Catalog";
+import { Routes, Route } from "react-router-dom";
+import { Header } from "./components/Header";
+import { CartPage } from "./pages/CartPage";
+import { Home } from "./pages/Home";
 import store from "./store";
 
 function App() {
   return (
     <Provider store={store}>
-      <Catalog />
-      <Cart />
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
     </Provider>
   );
 }
